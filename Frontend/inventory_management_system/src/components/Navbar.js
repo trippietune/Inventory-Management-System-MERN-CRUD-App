@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext'; // เพิ่มบรรทัดนี้
+
+// ...
 
 export default function Navbar(props) {
+  const { user, logout } = useContext(AuthContext); // เพิ่มบรรทัดนี้
   return (
     <div>
-      <navBar className="navbar navbar-expand-lg bg-danger">
+      <nav className="navbar navbar-expand-lg bg-danger">
         <div className="container-fluid">
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -27,7 +32,7 @@ export default function Navbar(props) {
           </div>
         </div>
 
-      </navBar>
+      </nav>
     </div>
   )
 }

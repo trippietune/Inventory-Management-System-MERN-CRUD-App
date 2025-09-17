@@ -1,19 +1,30 @@
-const connectToMongo = require('./db')
-connectToMongo();
+const express = require('express');
+const app = express();
+const port = 3001;
 
-const express = require('express')
-const app = express()
-const port = 3001
+const cors = require('cors');
+const connectToMongo = require('./db');
+const productsRoutes = require('./Routes/productsRoutes'); // เปลี่ยนชื่อตัวแปรเป็น productsRoutes
+const authRoutes = require('./Routes/authRoutes');
 
-const cors = require('cors')
-const router = require('./Routes/router')
 
+// Middleware
 app.use(cors());
 app.use(express.json());
-app.use(router);
 
+// เชื่อมต่อ MongoDB
+connectToMongo();
+
+// ใช้ API routes
+app.use('/api/products', productsRoutes);
+app.use('/api/auth', authRoutes);
+
+// Route ทดสอบ
+app.get('/', (req, res) => {
+    res.send('Inventory Management System API is running');
+});
+
+// เริ่มเซิร์ฟเวอร์
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
-
+    console.log(`Example app listening on port ${port}`);
+});
