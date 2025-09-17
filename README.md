@@ -1,3 +1,5 @@
+Thank you jaijai for helping me this project TT
+
 #For githubbbbb     
 git add .
 git commit -m "คำอธิบายการแก้ไข"
