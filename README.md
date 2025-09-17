@@ -1,3 +1,29 @@
+#For githubbbbb     
+git add .
+git commit -m "คำอธิบายการแก้ไข"
+git push origin main
+
+ถ้าอยากสร้าง branch สำหรับฟีเจอร์ใหม่:
+git checkout -b feature/auth-system
+
+แก้โค้ดใน branch นั้น → commit → push:
+git push origin feature/auth-system
+สามารถสร้าง Pull Request บน GitHub เพื่อ merge กลับเข้า main
+Tip:
+-->อย่าลืมใส่ .gitignore สำหรับ node_modules/ และ .env
+-->ใช้ commit message ให้สื่อความหมาย เช่น Add auth routes and user model
+
+ตัวอย่าง .gitignore (สำคัญมาก)
+# Node.js
+node_modules/
+.env
+.DS_Store ป้องกันไม่ให้ node_modules และไฟล์ .env ที่มี secret ขึ้น GitHub
+
+.env ตัวอย่าง
+PORT=3001
+MONGO_URI=mongodb://127.0.0.1:27017/IMS
+JWT_SECRET=your_super_secret_key
+______________________________________________________________________________________________________________________________________________________________
 # Inventory Management System MERN CRUD App
 
 A simple MERN project that lets the user insert, update, delete & get products from the MongoDB.
